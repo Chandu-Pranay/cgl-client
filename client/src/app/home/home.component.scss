@@ -1,0 +1,44 @@
+.cgl-head{
+    position:relative;
+    text-align: center;
+    color:white;
+    margin:0% 0.1%;
+    font: 1.2em sans-serif;
+    .cgl-text{
+        position:absolute;
+        top:30%;
+        left:5%;
+        // font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        // font-weight: bolder;
+      
+        
+    }
+    img{
+        opacity: 0.9;
+    }
+}
+a{
+    margin: 2% 2% 0% 2%;
+    color:#2e383f;
+    text-decoration: none;
+    font-weight: 500;
+}
+a:hover{
+    color:#f7c068;
+   border-bottom: 2px solid #f9a828;
+}
+a:active{
+    color:#f9a828;
+    border-bottom: 2px solid #f9a828;
+}
+a:first-child{
+    color:#f9a828;
+    border-bottom: 2px solid #f9a828;
+}
+
+#coverages{
+    img{
+        height:30vh;
+    }
+    
+}

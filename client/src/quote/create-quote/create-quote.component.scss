@@ -1,0 +1,31 @@
+.quote-form {
+  min-height: 75%;
+}
+.mat-stepper-horizontal {
+  margin-top: 1%;
+
+}
+
+.mat-mdc-form-field {
+  margin-top: 2%;
+}
+
+mat-form-field {
+    display: block;
+}
+#policy-term{
+    display:flex;
+    flex-wrap: wrap;
+    mat-form-field{
+        width: 50%;
+    }
+}
+.prospect-info{
+  box-shadow:1px 1px 2px 3px rgb(236, 238, 240);
+  border-radius: 1%;
+  padding: 5%;
+  margin-top:1%;
+}
+.prospect-info:hover{
+  background-color: rgb(255, 254, 254);
+}

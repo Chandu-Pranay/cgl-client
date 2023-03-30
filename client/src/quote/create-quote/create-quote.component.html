@@ -1,0 +1,285 @@
+<!-- {{ QuoteForm.value | json }} -->
+<div  class="row container-fluid quote-form">
+  <div class="col-lg-1 "></div>
+  <div class="col-lg-10 col-md-12">
+    <mat-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="QuoteForm">
+        <ng-template matStepLabel>Basic Information</ng-template>
+        <div class="row container-fluid ">
+          <div class="col-lg-3"></div>
+          <div class="col-lg-6 col-md-12">
+          <form [formGroup]="QuoteForm" class="prospect-info">
+            <form formGroupName="Prospect">
+              <mat-form-field appearance="outline">
+                <mat-label>Organization Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Organization Name"
+                  formControlName="OrganizationName"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Contact</mat-label>
+                <input
+                  matInput
+                  placeholder="Contact"
+                  formControlName="Contact"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="Email" />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>No of Units</mat-label>
+                <input
+                  matInput
+                  placeholder="No of Units"
+                  formControlName="NumberOfUnits"
+                />
+              </mat-form-field>
+            </form>
+
+            <mat-form-field appearance="outline">
+              <mat-label>RiskState</mat-label>
+              <input
+                matInput
+                placeholder="RiskState"
+                formControlName="RiskState"
+              />
+            </mat-form-field>
+
+            <form formGroupName="PolicyTerm">
+              <div id="policy-term">
+                <mat-form-field appearance="outline">
+                  <mat-label>Effective Date</mat-label>
+                  <input
+                    matInput
+                    placeholder="Select Effective Date"
+                    formControlName="EffectiveDate"
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>ExpiryDate</mat-label>
+                  <input
+                    matInput
+                    placeholder="Select ExpiryDate Date"
+                    formControlName="ExpiryDate"
+                  />
+                </mat-form-field>
+              </div>
+            </form>
+
+            
+          </form>
+          <div>
+            <button
+              mat-raised-button
+              color="primary"
+              class="mt-4 m-2"
+              matStepperNext
+            >
+              Next
+            </button>
+          </div>
+        </div>
+          
+        </div>
+      </mat-step>
+      <mat-step [stepControl]="QuoteForm">
+        <ng-template matStepLabel>Business Information</ng-template>
+        <div class="row container-fluid">
+          <div class="col-lg-3 col-md-1"></div>
+          <form [formGroup]="QuoteForm" class="col-lg-6 col-md-10">
+            <button
+              mat-raised-button
+              color="primary"
+              type="button"
+              (click)="addBusiness()"
+            >
+              Add Business
+            </button>
+            <form formArrayName="Businesses">
+              <div *ngFor="let business of Businesses.controls; let i = index">
+                <div [formGroupName]="i">
+                  <mat-accordion class="example-header-align m-1" multi>
+                    <mat-expansion-panel (opened)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>Business</mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <mat-form-field appearance="outline">
+                        <mat-label>Industry Type</mat-label>
+                        <input
+                          matInput
+                          placeholder="Select Industry Type"
+                          formControlName="IndustryType"
+                        />
+                      </mat-form-field>
+                      <mat-form-field appearance="outline">
+                        <mat-label>Territory</mat-label>
+                        <input
+                          matInput
+                          placeholder="Select Territory "
+                          formControlName="Territory"
+                        />
+                      </mat-form-field>
+                      <mat-form-field appearance="outline">
+                        <mat-label>Exposure</mat-label>
+                        <input
+                          matInput
+                          placeholder="Select Exposure"
+                          formControlName="Exposure"
+                        />
+                      </mat-form-field>
+                      <mat-accordion class="example-header-align" multi>
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>Address</mat-panel-title>
+                          </mat-expansion-panel-header>
+                          <form formGroupName="Address">
+                            <mat-form-field appearance="outline">
+                              <mat-label>First Line</mat-label>
+                              <input
+                                matInput
+                                placeholder="Enter First Line"
+                                formControlName="FirstLine"
+                              />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                              <mat-label>Second Line</mat-label>
+                              <input
+                                matInput
+                                placeholder="Enter Second Line"
+                                formControlName="SecondLine"
+                              />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                              <mat-label>City</mat-label>
+                              <input
+                                matInput
+                                placeholder="City"
+                                formControlName="City"
+                              />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                              <mat-label>State</mat-label>
+                              <input
+                                matInput
+                                placeholder="Select State"
+                                formControlName="State"
+                              />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                              <mat-label>ZipCode</mat-label>
+                              <input
+                                matInput
+                                placeholder="Select Code"
+                                formControlName="ZipCode"
+                              />
+                            </mat-form-field>
+                          </form>
+                        </mat-expansion-panel>
+                      </mat-accordion>
+
+                      <mat-accordion class="example-header-align m-1" multi>
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>Coverage</mat-panel-title>
+                          </mat-expansion-panel-header>
+                          <form formGroupName="Coverage">
+                            <mat-form-field appearance="outline">
+                              <mat-label>Coverage Name</mat-label>
+                              <input
+                                matInput
+                                placeholder="Select Coverage"
+                                formControlName="CoverageName"
+                              />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                              <mat-label>Deductible Amount</mat-label>
+                              <input
+                                matInput
+                                placeholder=" Duductible Amount"
+                                formControlName="DuductibleAmount"
+                              />
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                              <mat-label>Occurance Limit</mat-label>
+                              <input
+                                matInput
+                                placeholder="Select Occurance Limit"
+                                formControlName="OccuranceLimit"
+                              />
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline">
+                              <mat-label>Aggregate Limit</mat-label>
+                              <input
+                                matInput
+                                placeholder="Select Aggregate Limit"
+                                formControlName="AggregateLimit"
+                              />
+                            </mat-form-field>
+                          </form>
+                        </mat-expansion-panel>
+                      </mat-accordion>
+                      <div>
+                        <button
+                          mat-raised-button
+                          color="primary"
+                          type="button"
+                          (click)="removeBusiness(i)"
+                        >
+                          Remove Business
+                        </button>
+                      </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </div>
+              </div>
+            </form>
+            <button
+              mat-raised-button
+              color="accent"
+              class="m-2"
+              matStepperPrevious
+            >
+              Back
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              class="m-2"
+              matStepperNext
+            >
+              Next
+            </button>
+          </form>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button
+            mat-raised-button
+            color="accent"
+            class="m-2"
+            matStepperPrevious
+          >
+            Back
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            class="m-2"
+            (click)="onSubmit()"
+          >
+            Submit
+          </button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  </div>
+</div>

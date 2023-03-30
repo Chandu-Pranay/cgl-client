@@ -1,0 +1,19 @@
+
+.navbar{
+    position:sticky;
+    top:0px;
+    padding:0.5% 3%;
+    font-weight: bold;
+    color:#2e383f;
+    z-index: 200;
+
+    img{
+        height:5vh;
+        //width: 100px;
+        // margin-left: 10%; 
+    }
+    .login-link{
+        position: absolute;
+        right:3%;
+    }
+}
